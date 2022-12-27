@@ -1,35 +1,15 @@
-a
-
 BANK DATABASE
-
 consider the following database maintained by a Bank. The Bank maintains
 information about its branches, customers and their loan applications.
-
 Following are the tables:
 branch (bid integer, brname char (30), breity char (10))
-
 customer (cno integer, cname char (20), caddr char (35), city (20))
-
 joan_application (Ino integer, lamtrequired money, lamtapproved money, |_date date)
-
 » Therelationship is as follows:
-
 branch, customer, loan_application are related with ternary relationship.
-
 ternary (bid integer, cno integer, Ino integer).
-
 Execution of Query:
-
 Postgres = # select * from branch;
-
- 
-
- 
-
- 
-
- 
-
 Output:
 bid| brname | brcity
 a ees __ anni 2 Aka
@@ -39,56 +19,16 @@ a ees __ anni 2 Aka
 Execution of Query:
 
 postgres=# select * from customer ;
-
 Output:
-
- 
-
 cno| cname
-
 wenne penn nnn ene nnn en nn
-
- 
-
 Execution of Query:
-
 | caddr | city
 a dpe merece nner en nenef eae eee
 | CAMP | PUNE
-
 | MGROAD .| PUNE
 | KOTHRUD | PUNE
-
 Postgres = # select * from loan_application;
-
- 
-
-Assignments
-
- 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Database Management Systems-Il (BCA Science — Il) Assignment,
 Output:
 Ino | lamtrequired | lamtapproved | |_date
 none Tb rnc ec cnn m nnn nnn nn eih een nnnnennnnnennennn of nnneennneeneneeennnne
@@ -119,16 +59,6 @@ postgres=# \i gq1.sql
 Output:
 cname
 
- 
-
- 
-
- 
-
- 
-
-(1 row)
-
 2. List the names of the customers who have received loan less than their requirement.
 select cname from customer a, loan_application b, ternary c
 where b.lamtapproved< lamtrequired
@@ -136,46 +66,19 @@ and a.cno=c.cno
 and b.1no=c.1no;
 
 Execution of Query:
-
 | postgres-# \i q1.sql
-patabas® Management Systems-ll (BCA Sclence — Ill) Assignments
-
- 
-
 output:
 cname
-
- 
-
 KIRAN
 AVINASH
-
 (2 rows)
 3, Find the maximum loan amount approved.
-
 select max(lamtapproved) from loan_application ;
 Execution of Query:
-
 postgres-# \i qi.sql
 Output:
 max
-
- 
-
- 
-
- 
-
- 
-
 $300,000.00
-
- 
-
- 
-
- 
-
 (1 row)
 4. Find out the total loan amount sanctioned by “Camp “branch.
 select c.bid, sum(lamtapproved) from branch a, loan_application b, ternary
@@ -187,53 +90,16 @@ group by c.bid;
 Execution of Query:
 postgres=# \i ql.sql
 Output:
-
- 
-
- 
-
- 
-
 1 | 100,000.00
-
-(1 row)
-
+1 row)
 5. Count the number of loan applications received by “MGROAD” branch.
 select c.bid, Count(*) from branch a, loan_application b, ternary c
 Where a.brname='MGROAD’ ~
 and a.bid=c.bid
 and b.1no=c.1no
 group by c.bid;
-
 Execution of Query:
-
 Postgres=# \i qi.sql
-
- 
-
- 
-
- 
-
- 
-
-A.3
-
- 
-Database Management Systems-II (BCA Science — Ill) Assignments
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 Output:
 bid | count
 ae oy <eon ces ee
@@ -242,44 +108,22 @@ ae oy <eon ces ee
 Views:
 14, Create a view which contains the details of all customers who have applied for a loan
 more than = 100000.
-
 create view V1 as
-
 select cname from customer a, loan_application b , ternary ¢
-
 where cast(lamtrequired as numeric) > 100000
-
 and a.cno=c.cno ; :
-
 and b.1no=c.1no
 Execution of View:
-
 postgres=# \i view1.sql
-
 CREATE VIEW
-
 postgres=# select * from v1;
 Output:
 cname
-
 See a adhe ea eal
-
- 
-
 KIRAN
 AVINASH
 (2 rows)
-
- 
-
- 
-
- 
-
- 
-
 2. Create a view which contains details of all loan applications from the ‘Shivajinagar’
-
 branch.
 create view V2 as
 select a.brname,b.cname,c.lamtrequired,c.lamtapproved from branch: a;
@@ -290,90 +134,34 @@ and c.lno=d. ino
 Execution of View:
 postgres=# \i view2.sql
 CREATE VIEW
-
 3 write the following Queries, on the above created views: |
 (a) List the details of customers who have applied for a loan of 100000
-
 Execution of View:
 postgres = # select *
-
- 
-
- 
-
 from v
 2 where cast(lamtrequired as numeric) ?
-
 19e80e;
-
-_—”:— A.4 — oe
-patabase Management Systems-il (BCA Sclence — Il) Assignments
-
- 
-
- 
-
-  
-
- 
-
 - output:
 brname | cname | lamtrequired | lamtapproved
 th rene nennn neem nnn nn th vn enn n nnn nnn ne ne th nnn ne enna nana nnn nanan
 | KIRAN | $200,000.00 | $100,000.00
 MGROAD | AVINASH | $500,000.00 | $300,000.00
-
- 
-
-(2 rows)
-
+2 rows)
 (b) List the details of loan applications from ‘MGROAD’, where loan amount is
 >%10000. ‘
-
-select * from v2 where brname='MGROAD' :
-
+elect * from v2 where brname='MGROAD' :
 and cast(lamtapproved as numeric) > 10@00@0;
 Execution of View:
-
 postgres=# \i v2.sql
 Output:
 brname |. cname | lamtrequired | lamtapproved
-
 + tf een an ene sens eneeeenn fp oon ennn n-ne 2 ee - === ===
-
 MGROAD | AVINASH | $500,000.00 —| $300,000.00 .
 (1 row)
-
- 
-
- 
-
- 
-
- 
-
- 
-
 (c) List the details of Loan applications, with the same loan amount.
 select cname, lamtapproved from v2 where lamtapproved in
 (select lamtapproved from v2 group by lamtapproved
-
 having COUNT(*) > 1) .
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 Execution of View:
 postgres=# \i v3.sql
 Output:
@@ -382,69 +170,30 @@ KIRAN _—_|_ $300,000.00
 SEEMA _| $100,000.00
 (2 rows)
 Stored Functions:
-
 1. Writea function that returns the total number of customers of a particular branch.
-
 (Accept branch name as input parameter). |
 Create or replace function f1(name1 text) returns integer as
 declare
-
 Cnt integer;
-
 begin
-
 Select into cnt count(*) from branch a, customer b , ternary c
-A.5 .
-
- 
-Database Management Systems-ll (BCA Sclonce - Ill)
-
- 
-
- 
-
 where a.brname=name1
 and a.bid=c.bid
 and b.cno=c.cno;
-
 return cnt;
-
 end;
 “LANGUAGE ‘plpgsql';
 Execution of Code:
-
 postgres=# \i fl.sql
 CREATE FUNCTION
 postgres=# select f1('CAMP');
-
- 
-
 meeee eens
-
- 
-
- 
-
- 
-
-(1 row)
-
+1 row)
 Output:
-
- 
-
- 
-
- 
-
- 
-
 (1 row)
-
 2. Write a function to find the maximum loan amount approved.
 create or replace function 2() returns text as '
 declare . .
-
 name text;
 amt money;
 begin
@@ -455,46 +204,16 @@ name := name || amt;
 return name; .
 end; oo
 "LANGUAGE 'plpgsql';
-
 from
-
 As j
 Sey |
-
- 
-
 branch 4
-
- 
-
-A.6
-
- 
-
- 
-
- 
- 
-
-a
-
-patabase Management Systems-Ii (BCA Science — Ii!) Assignments
-
 ; execution of Code:
-
 postgres=# \i f1.sql
 CREATE FUNCTION
 postgres=# select f2();
-
 output:
-
- 
-
- 
-
- 
-
-Errors and Exceptions:
+rrors and Exceptions:
 4 Write astored function to print the total number of customers of a particular branch. .
 (Accept branch name as input parameter). In case the branch name is invalid, raise an
 
@@ -521,9 +240,6 @@ CREATE FUNCTION
 postgres=¥ select f6(’pune’);
 
 ERROR: Invalid Branch Name pune
-
- 
-
 ee
 A.7
 |
@@ -557,28 +273,6 @@ postgres=# \i ul.sql
 CREATE FUNCTION
 postgres=# select £7()3
 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-  
-
- 
-
- 
-
- 
-
- 
-
 Output:
 £7
 0
@@ -592,30 +286,8 @@ ee $200,000.00 | $100,000.00 | 2016-03-01
 2 | $500,000.00 | $300,000.00 | 2015-03-01
 3 | $300,000.00 | $100,000.00 | 2017-02-01 é 7
 (3 rows) ee
-
-—_—_—_—_—_—_——
-
- 
-
- 
-
-A8
-
- 
-=
-
- 
-
-pata
-
-pase Management Systems-li (BCA Science ua IH) Assignments
-
-triggers
-
+triggers***************************************************************************
 write a trigger before deleting a customer record from the customer table. Raise a
-
- 
-
 1.
 notice and display the message “customer record is being deleted”.
 create or replace function print_notice() returns trigger as‘
@@ -683,13 +355,7 @@ ERROR: LOAN AMT is NOT VALID
 postgres=#
 SSO SOK ay Ri ORES
 Ss AN RASS LAN wi SAC BA
-
-  
-
- 
-
- 
-
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ° Consider the following dtatiase maintained by a college. It gives information about —
 students and the teachers along with the subject taught by the teacher and the marks j
 obtained by the student in the subject. oo
@@ -740,7 +406,7 @@ insert into student_teacher values(4,1, 'c++',75);
 insert into student_teacher values(2,1,'c',80); 
 insert into student_teacher values(3,2,'DS',78);
 insert into student_teacher values(4,3, 'ADBMS', 70);
-insert into student_teacher values(5,3, 'ADBMS' ,50) ; ‘
+insert into student_teacher values(5,3, 'ADBMS' ,50); 
 insert into student_teacher values(1,4,'cn',66);
 insert into student_teacher values(2,5,'se',73);
 insert into student_teacher values(3,5,'se',85);
@@ -845,65 +511,26 @@ Views :
 
 4, Create a view containing details of all the teachers teaching the subject
 ‘Mathematics’.
-create view assl as
+
+create view ass1 as
 select distinct b.tname,b.experience
-from teacher b, student_teacher co!
-where subject='c'
-and b.tno=c.tno;
+from teacher b,student_teacher c 
+where subject='c' and b.tno=c.tno;
 Execution of View:
 postgres=# \i a4.sql’
 CREATE VIEW .
 postgres=# select * from ass1;
 Output: .
-
- 
-
-tname | experience
-
- 
-
- 
-
 Kumar } 10
-(1 row)
-2. Create a view to list the details of all the students w
+2. Create a view to list the details of all the students who are taught by teacher 
+having 
 experience of more than 3 years.
-create view ass3 as
-select distinct a.sname,a. sclass
-from student a, teacher b, student_teacher c
-where a.sno=c.sno
-. and b.tno=c.tno
-group by sname,sclass,b.experience
+=>create view ass2 as 
+select a.sname,a.sclass from student a,teacher b,student_teacher c where
+a.sno=c.sno and b.tno=c.tno 
+group by sname,sclass,b.experience 
 having b.experience > 3;
-Execution of View:
-Postgres=# \i a4.sql
-CREATE VIEW
-. Postgres=# select * from ass3;
-
- 
-
-ho are taught by a teacher having
-
- 
-
-AS
-
- 
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Database Management Systems-ll (BCA Science - Ill) Ssignmen,
+Postgres=# select * from ass3;
 Output:
 sname | sclass
 amie es, Fete te sweeten
@@ -918,108 +545,42 @@ Suresh | — tybca
 (a) List the name of the most experienced teacher for “Mathematics”.
 select max(experience)
 from assi;
-Execution of View:
-postgres=# \i va. sql
-Output:
-
- 
-
- 
-
- 
-
- 
-
- 
-
-(1 row)
+=>10
 (b) List the names of students of ‘ S.Y.B.C.A.’ class, who are taught by a teacher having
 more than 3 years experience.
 select sname from ass3
-where sclass = '‘sybca';
+where sclass = 'sybca';
 Execution of View:
 postgres=# \i v4.sql
 Output:
 sname
 
- 
-
- 
-
- 
-
- 
-
-(2 rows) : a
-Stored Functions: |
+Stored Functions: **********************
 1. Write a function to accept teacher name as input and returns the number of students
-taught by the teacher, © ,
+taught by the teacher
 create or replace function tech_cnt(name text) returns int as '
 declare
-
- 
-
- 
-
-A.16 ©
- 
-
-re a
-
-ee
-
-Database Managoment Systems-Il (BCA Science — Il) Assignments
-
 cnt integer;
 begin
-
 select into cnt count(*)
-
 from student a, teacher b, student_teacher c
 where tname= name
-
 and a.sno=c.sno
-
 and b.tno=c.tno;
-
 return cnt;
-
 end;
-"LANGUAGE ‘plpgsql';—
+'LANGUAGE 'plpgsql';
 Execution of Code:
-
-postgres=# \i f1.sql
 CREATE FUNCTION
 postgres=# select tech_cnt('Kumar');
-
-Output:
 tech_cnt
-
 3
 (1row)
 postgres=# select tech_cnt( ‘Veena’ );
 Output:
 tech_cnt
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 (1 row)
 2. Write a function to accept name of subject and count the number of teachers who
-
 teach that subject.
 create or replace function sub_cnt(name text) returns int as ‘
 declare
@@ -1034,46 +595,12 @@ return cnt;
 end;
 ‘LANGUAGE 'plpgsql';
 
-Se
-A.17
-Database Management Systems-ll (BCA Science — Ill) Assignmg
-te
-
-Execution of Code:
 postgres=# select sub_cnt('DS');
-
 Output:
-
 sub_cnt
-
- 
-
- 
-
- 
-
- 
-
-(1 row)
-
-Execution of Code:
-postgres=# \i f1.sql
-CREATE FUNCTION
-
 postgres=# select sub_cnt(‘c ys
 Output:
 sub_cnt
-
- 
-
- 
-
- 
-
- 
-
-(1 row)
-
 3.. Write a function to accept student name and calculate the total marks obtained by
 that student.
 create or replace function ee text) returns int. as ‘
@@ -1081,46 +608,23 @@ declare
 cnt integer;
 begin
 select into cnt sum(marks)
-from student a , teacher b, student_teacher c |
-where sname= name ; |
+from student a , teacher b, student_teacher c 
+where sname= name ; 
 and a.sno=c.sno :
-and b.tno=c.tno |
-group by c.sno; — |
-return cnt; )
+and b.tno=c.tno 
+group by c.sno; 
+return cnt; 
 end;
-"LANGUAGE 'plpgsql';
-
+'LANGUAGE 'plpgsql';
 Output:
-postgres=# \i #1.sql
-CREATE FUNCTION
 postgres=# select sub_sum('Suresh');
-
- 
-
- 
-
- 
-
 sub_sum
-
- 
-
- 
-
- 
-
- 
-Database Management Systems-ll (BCA Science — II!) Assignments
-
-cursors:
+cursors:****************************************************************
 bi. Writea stored function using cursors to accept student name from the user and find
-
 the names of all teachers and subjects taught to the student.
-create or replace function tech _name(name text) returns int as ‘
-
+create or replace function tech _name(name text) returns int as '
 declare
 cl cursor for select tname , subject
-
 from student a , teacher b, student_teacher c
 where sname= name
 and a.sno=c.sno
@@ -1133,154 +637,87 @@ loop
 fetch cl into name1, sub;
 EXIT WHEN NOT FOUND;
 raise notice ''% %'‘*,name1,sub;
-end loop; :
+end loop;
 close ci;
 return 1;
 end;
-"LANGUAGE ‘plpgsql'‘;
-Execution of Code: —
+'LANGUAGE 'plpgsql';
 postgres=# select tech_name('Suresh');
 eae
 NOTICE: Kumar Cc
 NOTICE: - Ketaki ADBMS
-
 tech_name
 1
-
 (1 row)
-
-2. Write a stored function using cursors whic
-
+2. Write a stored function using cursors which will calculate total number of subjects
 taught by each teacher.
-create or replace function tech_ cnt() returns int as
-
- 
-
- 
-
- 
-
- 
-
-h will calculate total number of subjects
-
+create or replace function tech_ cnt() returns int as'
 declare
-c2 cursor select distinct subject, tnam
-
+c2 cursor select distinct subject, tname,count(distinct(b.tno))
 from teacher a, student_teacher b
 Where a.tno=b.tno
-
-e,count(distinct(b.tno))
-
- 
-
-A.19
-Database Management Systems-ll (BCA Science — Ill) Assi
-S 9Nmen,
-ts
-
 group by subject, tname;
 name1 text;
-
 sub1 text;
-
 cnt integer;
-
 begin
-
 open c2;
-
 loop
-
 fetch c2 into name1, cnt;
 EXIT WHEN NOT FOUND;
-raise notice ''% % ‘',name1,cnt;
+raise notice ''% % '',name1,cnt;
 end loop;
-
 close c2;
-
- 
-
 return 1;
 end;
-"LANGUAGE ‘plpgsql';
-Errors and Exceptions:
+'LANGUAGE 'plpgsql';
+Errors and Exceptions:**************************************************************
 1. Write a stored function to accept teacher name as input parameter and print the total
 number of students taught by the teacher. In case the teacher name is invalid, raise
-
 an exception for the same. :
-create or replace function tech_cnt(name text) returns int as
-
-declare ~
+create or replace function tech_cnt(name text) returns int as '
+declare
 cnt integer;
 begin
-select into cnt count(*) lf
-from student a, teacher b, student_teacher Cc
-
- 
-
+select into cnt count(*) 
+from student a, teacher b, student_teacher c
 where tname= name
 and a.sno=c.sno
 and b.tno=c.tno;
-if cnt=@ then
-raise exception
+if cnt=0 then
+raise exception '' Invalid teacher '';
 end if;
 return cnt;
 end;
-
-"LANGUAGE ‘plpgsql';
-
-Execution of Code:
-
-postgres=# \i f3.sql
-CREATE FUNCTION be
+'LANGUAGE 'plpgsql';
 postgres=# select tech_cnt( ‘Kumar’ )
-
-'' Invalid teacher '';
-
-A.20
-Database Management Systems-II (BCA Science — Il) Assignments .
-
- 
-
 Output:
 | | tech_cnt
-
-aseersceeenes
-
- 
-
- 
-
- 
-
-_ (1row)
-Execution of Code:
-Fs postgres=# select tech_cnt('Kk');
-dutput :
+     3
+postgres=# select tech_cnt('Kk');
+output :
 ERROR: Invalid teacher
-, Write a stored function to increase the marks of each student to 40 if the marks are
+Write a stored function to increase the marks of each student to 40 if the marks are
 between 35 and 40. Print a notice to the user, before updating the marks.
 create or replace function upd_mk() returns int as '
 declare
 c2 cursor for select sno, marks from student_teacher where marks between
-35 and 48; .
+35 and 40; .
 rno integer;
 mks integer;
-begin : HS
-open c2; SBR ne
+begin 
+open c2; 
 loop
 fetch c2 into rno,mks;
 EXIT WHEN NOT FOUND;
 update student_teacher
-set marks=4@ : =p = -
-where sno=rno; . oe
-raise notice ''% marks are updated ‘',rno;
+set marks=40 where sno=rno; 
+raise notice ''% marks are updated '',rno;
 end loop;
 close c2;
 return 1;
 end;
-_ "LANGUAGE ‘plpgsql';
+'LANGUAGE 'plpgsql';
 postgres=# insert into student_teacher values(1,1,‘c',35);3
 INSERT @ 1
 ' postgres=# insert into student_teacher values(1,2, 'DS',38);
@@ -1289,225 +726,115 @@ Xecution of Code:
 Postgres=# \i cur1.sql
 CREATE FUNCTION
 Postgres=# select upd_mk();
-A.21
- 
-
-Database Management Systems-Il (BCA Science — II!)
-
-* Assi |
-Output:
-
 NOTICE: 1 marks are updated ~
 NOTICE: 1 marks are updated
 upd_mk
 
- 
-
- 
-
- 
-
- 
-
-(1 row)
-Execution of Code:
-
-postgres=# select * from student.teacher ;
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Output :
-sno | tn0O | subject | .marks
-erecee= sh ween nn neennen of conn ne nn nnn nn nn cnnn of connecenncnnncs
-5 alred [SrCu |. 60
-4 | 1 | C++ | 75:
-2 pw | c | 80
-3 | 2 | Ds | 78
-aS | ADBMS | 70.
-5 | 3 | ADBMS | 50
-2 | 5 j} SE te] 8
-3 | 5 | SE | 35
-1 | 4 | CN | 40
-1 | 1 | c | 40
-1 | 2 | DS | 40
-(11 rows) 2h aps eee
-Triggers:
-
-+o a notic
+Triggers:****************************************************************************
 1. Write a trigger before deleting'a student record from the student table. Raise @
 and display the message “student record is being deleted”.
 CREATE TRIGGER del_student
-
 BEFORE DELETE ON student
 FOR EACH ROW
 EXECUTE PROCEDURE print_notice_stud();
-
-create or replace Function print_notice_stud() returns 5 trigger *
+create or replace Function print_notice_stud() returns 5 trigger as '
 declare
-
 begin
 RAISE NOTICE ''deleting Student data ..'';
 return null;
 end;
-"LANGUAGE 'plpgsql’;
-
- 
-
-A.22
-
- 
- 
-
-patabase Management Syatomai (BCA Solence = Ii) Assignments
-
-precution of Code;
-postgreseil \d c4.sql
+'LANGUAGE 'plpgsql';
 CREATE FUNCTION
-postgresell \d tpg. sql
 CREATE TRIGGER
 9, Write a trigger to ensure that the marks entered for a student, with respect to a
 subject is never < 0 and greater than 100,
 create or replace function chk_stud() returns trigger as '
-
 declare
-
 mk integer;
-
 begin
-
 if NEW.marks < © or NEW.marks > 100 then
-
-raise notice ''Marks should be never < ®@ or Marks should be never > 180°’;
-
+raise notice ''Marks should be never < 0 or Marks should be never > 100'';
 end if;
-
 return null;
-
 end;
-
-"LANGUAGE ‘plpgsql';
+'LANGUAGE 'plpgsql';
 CREATE TRIGGER chk_marks
 BEFORE INSERT ON student_teacher
 FOR EACH ROW
 EXECUTE PROCEDURE chk_stud();
-
-Execution of Code:
-
 postgres=# \i c5.sql
-
 CREATE FUNCTION
-
 postgres=# \i trg1.sql
-
 CREATE TRIGGER
-
 Output:
 postgrese=# insert into student_teacher values(1,3, 'ADBMS' ,105);
-
 NOTICE: Marks should be never < @ or Marks should be never > 100
 postgressi#t insert into student_teacher values(1,3, "ADBMS',105) ;
 NOTICE: Marks should be never < @ on Marks should be never > 100
-
-ES Movie DATABASE =.
-
-* Consider the following Movie database.
-Movies (mno integer, mname varchar (25),
-actor (ano integer, a_name char (30),role char (
-(0)
-
-Producer(pno integer,
-ene
-A.23
-
-release_year integer, budget money)
-30), charges money, a_address varchar
-
-name char (30), p_address varchar (30))
-Acslonmenty |
-
-producer has Produce
-
-one producers, Each moj wy
-Q
-a
-
-Database Management Systems-lIl (BCA Science — itl)
+Movie DATABASE$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Consider the following Movie database.
+Movies (mno integer, mname varchar (25),release_year integer, budget money)
+actor (ano integer, a_name char (30),role char (30), charges money, a_address varchar(30))
+Producer(pno integer,name char (30), p_address varchar (30))
 
 Each actor has acted in one or more movies. Each
 movies and each movie can be produced by more than
-one or more actors acting in it, in different roles.
-e Create the above database in PostGreSQL.
-create table movies ‘
-( .
-* mno integer primary key,
+one one producers,or more actors acting in it, in different roles.
+Create the above database in PostGreSQL.
+create table movies
+( 
+mno integer primary key,
 mname char(30),
 release_year integer ,
-budget money |
-)3 |
-create table actor ;
+budget money
+);
+create table actor
 (
 ano integer primary key,
-a_name char(3@),
+a_name char(30),
 role char(15),
-a_address char(3@),
+a_address char(30),
 charges money
-i?
+);
 create table producer
-(.
+(
 pno integer primary key,
-pname char(3@),
-p_address char(3@)
-)3
+pname char(30),
+p_address char(30)
+);
 create table mov_act_pro
 (
 mno integer references movies(mno),
 ano integer references actor(ano),
 pno integer references producer(pno)
-3 :
-insert into movies values(1, 'PK',2015,1000028) ;
-insert: into movies values(2, 'piku' ,2014, 2000008) ;
-insert into movies values(3, 'Bajirao mastani' , 2016, 30002000);
-insert into movies values(4, 'Dangal’ , 2016, 5000000); E
-insert into movies values(5, ‘Student of Year" 2015, 25000008) ;
+);
+insert into movies values(1, 'PK',2015,1000000) ;
+insert into movies values(2, 'piku' ,2014, 2000000) ;
+insert into movies values(3, 'Bajirao mastani' , 2016, 30000000);
+insert into movies values(4, 'Dangal' , 2016, 50000000); 
+insert into movies values(5, ‘Student of Year', 2015, 25000000) ;
 
  
 
-insert into actor values(1, ‘Amitabh’, ‘Hero’, ‘Mumbai , 100000000)
-insert into actor values(2, ‘Amin’ , ‘Hero’ ,‘DeLhi" ,200000000);
-insert into actor values(3, ‘Deepika’, ‘Heroine’ , ‘Pune 2. 0008 saeays
-insert into actor values(4, ‘Anushka', ‘Heroine’, ‘Chennat 500
-insert into actor values(5, ‘Aliya’, ‘Heroine’ , ‘Delhi’ , 6000000);
-
-insert into actor values(6, 'Varun', 'Villan' , ‘Pune’ , 30000020);
-
-A.24
-aa
-
+insert into actor values(1, 'Amitabh', 'Hero', 'Mumbai' , 100000000);
+insert into actor values(2, 'Amin' , 'Hero' ,'DeLhi' ,200000000);
+insert into actor values(3, 'Deepika', 'Heroine','Pune',10000000);
+insert into actor values(4, 'Anushka', 'Heroine', 'Chennai',5000000);
+insert into actor values(5, 'Aliya', 'Heroine' , 'Delhi' , 6000000);
+insert into actor values(6, 'Varun', 'Villan' ,'Pune' , 30000000);
  
 
- 
 
-ement aineedl (F
-paiebse Mani ment Gyatomell (OA Holenoe = Il) Assignments:
-ingart ibe prediee Values(l, Karan’, ‘Mumbad') |
-insert: into producer Values (2, Shetty', Pune’)
-insort ati Se values(d,'Khan', ‘Mumbad');
-{nsert into producer values(A,'Salman', 'Mumbat.') 4
-insert into producer values(5, Amir’, "Deals ') 3
-insert into mov_act_pro values(2,1,4)5
-insert into mov_act_pro values(2,3,2)3
-insert into mov_act pro values(1,2,5)3
-insert: into mov_act_pro values(1,4,5)5
+insert into producer values(l,'Karan', 'Mumbad');
+insert into producer values (2, 'Shetty', 'Pune');
+insort into producer values(3,'Khan', 'Mumbai');
+insert into producer values(4,'Salman','Mumbai');
+insert into producer values(5, 'Amir', 'Delhi');
+
+insert into mov_act_pro values(2,1,1);
+insert into mov_act_pro values(2,3,2);
+insert into mov_act pro values(1,2,5);
+insert: into mov_act_pro values(1,4,5);
 insert into mov_act_pro values(3,3,4);
 insert into mov_act_pro values(3,5,4);
 insert into mov_act_pro values(4,6,3);
@@ -1515,381 +842,96 @@ insert into mov_act_pro values(4,4,5);
 Execution of Query: .
 postgresett select * from movies;
 Output:
-mno| mname | release_year | budget
-eoneme + ro ov wt woot Of nt ot fa a at nm a
-1 | PK | 2015 | $1,000,000,00
-2 | Piku | 2014 | $20,000,000,00
-3 | Bafiraomastani | 2016 | $30,000,000.00
-4 | Dangal | 2016 | $50,000,000.00
-5 |StudentofYear | 2015 | $25,000,000.00
-(5 rows)
-Execution of Query:
 postgres select * from actor;
 Outputs
-ano | a_name | role | a_address | charges
-0 0 0 8 os ss tm *} (a on et 0 0 8 a 8 ww ww
-Seem 4 + nesneunnamnnnoone of sw ww we 07 1 09 ww { js
-1 | Amitabh | Hero | Mumbal | $100,000,000.00
-2 amir | “Hero | Dani =|‘ San Qna.mnnne
-3 | Deepika | Heroine | Pune — | . aap 500 a0
-| Anushka | Heroine | Chennal | 6,000,000.00
-5 | Allya {| Heroine | Delbi | et aon.cooan
-6 | Varun | Villan |_Delhi ee ee,
-. (Grows)
-XECUt On of Query:
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-—Posteresey select * from producen;
-
-A.25
-
- 
-J
-
-Database Management Systems-Il (BCA Science — Ill)
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-“Selo
-Output:
-pno | pname — | p_address
-aa---- + Seen diet enee
-1 | Karan | Mumbai
-2 | Shetty | Pune
-3 | Khan |. Mumbai
-4 | Salman | Mumbai
-5. | Amir | Delhi
-(5 rows)
-Execution of Query:
+select * from producen;
 postgres=# select * from mov_act_pro;
 Output:
-mno| ano | pno
-= Ftc ate fee
-2 | 1 |} 1
-2 | 3 | 2
-1 | 2 | 5
-1 | 4 | 5
-3. lee | 4
-3 <2[,.-5 | 4
-is 4 | 6 | 3
-4 | 4 |} 5
-F (8 rows)
-ostgreSQL:
-Execute the following queries in P gre Q an which Me. Amit
 
-1. List the names of actors who have acted in at t least one movie,
+1. List the names of actors who have acted in at least one movie, in which mr.Amir has
 acted.
-select a_name, mname from movies a,actor b ,
-where c.mno = (select c.mno from movies. a,actor b
-
-mov_act_pro ¢
-, mov_act_pro ©
-
+select a_name, mname from movies a,actor b ,mov_act_pro c
+where c.mno = (select c.mno from movies a,actor b,mov_act_pro c
 where a_name='Amir'
-
 and a.mno=c.mno
-
 and b.ano=c.ano)
-
 and a.mno=c.mno
-
 and b.ano=c.ano
-
-group by a_name,mname |
-
-having count(*)>= 1; — ae
-Execution of Query: :
-
-postgres=# \i as3.sql
-
-A.26
-’ patabase Management Systems-ll (BCA Science — Il)
-
-  
- 
-
- 
-
-‘output:
-
- 
-
- 
-
+group by a_name,mname 
+having count(*)>= 1;
+output:
 a_name | mname
-senencenennnanennnne sh ee ee nee nee eee ne nee
 Anushka | PK
-‘ Amir | . PK
-Grows)
+ Amir | . PK
 
 2, List the names of the actors and their movie names.
 
 select a_name, mname from movies a,actor b , mov_act_pro c
 where a.mno=c.mno ,
-
 and b.ano=c.ano;
-
-Execution of Query:
-
- 
-
- 
-
- 
-
- 
-
- 
-
-_ postgres=# \i as3.sql
-
-poo pet
-
-aname | mname
-
-+ ee --- -
-| Amitabh | ‘Piku
-
-Amir | PK
-
-Anushka | PK qo alte
-F Deepika | -Bajirao mastani
-Aliya | Bajirao mastani ©
-Varun | Dangal
-
-| Anushka | Dangal
-
-(8 rows)
 
 3. List the names of movies whose producer is “Mr. Khan”
 
-select pname, mname from movies a,producer ¢,.. mov_ act _pro d
-
-Where pname='Khan’
-
-_ and a.mno=d.mno
-
+select pname, mname from movies a,producer c,mov_ act _pro d
+Where pname='Khan'
+and a.mno=d.mno
 and c.pno=d.pno;
-
-eee Query:
-
-_ POstgres=# \i as3. sql
 Output:
 
- 
-
- 
-
- 
-
- 
-
-(Lrow)
 4 list the names of the movies with the highest budget.
-
-Select mname , budget 7 :
-from movies where budget =(select max(budget). from movies) ;
-
-Assignments
-
- 
-
-A.27
-Database Management Systems-ll (BCA Sclence - III)
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Execution of Query:
-postgres=# \i as3.sql
+Select mname , budget
+from movies where budget =(select max(budget) from movies) ;
 Output:
 mname | budget
-nearer eit ls sf daticas Salad aiid secowannnaanan
 Dangal | $50,000,000.00
-(1 row) |
-
 5. List the names of movies released after 2000.
 select mname , release_year
 from movies where release_year > 2000 ;
-
- 
-
- 
-
- 
-
- 
-
-Execution of Query:
-postgres=# \i as3.sql .
 Output:
 mname 7 | release_year
-Sa a en leails Si leche deepest ee
 PK | 2015
 Piku | 2014
 Bajirao mastani | 2016
 Dangal | - 2016
 Student ofthe Year | 2015
-(5 rows) |
-
- 
-
 6. List the names of actors who played the role of ‘Villan’.
 select a_name , role
-
- 
-
- 
-
- 
-
- 
-
- 
-
 from actor
 where role = 'Villan' ;
 Execution of Query:
-postgres=# \i as3.sql
 Output:
 a_name | role
-a , Bh de tneSeaenaeeevan eet
 Varun | Villan
-(1 row)
 
--, alone
-vie #
-7. List the names of actors who are given the maximum charges for their m°
-
+7. List the names of actors who are given the maximum charges for their movies along
 with movie name and release year,
-
-select a_name , mname , release_year, charges ~
-
-A.28
-Dstabase Management Systems-II (BCA Science — II) Assignments
-
-from movies a, actor b, mMov_act_pro c
-
+select a_name , mname , release_year, charges 
+from movies a, actor b, mov_act_pro c
 where charges = (select max(charges) from actor )
 and a.mno=c.mno
-
 and b.ano=c.ano;
 
- 
-
- 
-
- 
-
- 
-
- 
-
-Execution of Query:
-postgres=# \i as3.sql
-Output:
-aname | mmame | release year |. charge
-+ + ee Ee ee eee ee
-Amir | PK | 2015 | e20nieoo cone
-(row) ee
-
 8. Display count and total budget of all movies released in year 2015.
-select count(mno), sum(budget) .
-from movies a oe a -
+select count(mno), sum(budget) 
+from movies
 where release_year = 2015 ; '
-Execution of Query:
-postgres=# \i as3.sql
 
- 
-
- 
-
- 
-
- 
-
-2 | $26,000,000.00-
-
-(Lrow)
-
-Cursor and Triggers:
-i Write a trigger before inserting into a movie table to check nueeee Budget should be
-
+Cursor and Triggers:***********************************************************************
+i Write a trigger before inserting into a movie table to check budget.Budget should be
 minimum 50 lakh. Display appropriate message.
-create or replace function chk_budget() returns trigger as
-
- 
-
+create or replace function chk_budget() returns trigger a '
 declare
 begin
 if cast(NEW.budget as numeric) < 50000 then
 raise notice ''Budget should be never < 50000 '';
-
--end if;
+end if;
 return null;
 end;
-* LANGUAGE "plpgsql';
+'LANGUAGE 'plpgsql';
 CREATE TRIGGER Trg_budget1
 BEFORE INSERT ON movies
-
-A299. -
-
- 
- 
-
-Database Management Systemstl (RCA Selernce = Ml —_Arstanman,
-—
-
 FOR EACH ROW
-EXECUTE PROCEDURE elk budget(Q)}
+EXECUTE PROCEDURE chk_budget();
 Execution of Code:
 postgrese® \L ass. sql
 CREATE FUNCTION
@@ -1902,58 +944,24 @@ INSERT @ 6
 
 2. Write a stored function using cursors to display the names of actors who have acted
 in the maximum number of movies. ,
-postgres=# insert into mov_act_pro values(4,3,2)3
-
- 
-
- 
-
- 
-
- 
-
-INSERT 6 1
-Execution of Code:
-postgres=# select * from mov_act_pro;
-Output:
-mno| ano | pno
-wannne f nneee nee Hh noeeae ;
-2 | 12 | 1
-2 |B. |2
-i | 2 | 5
-1 | 4 [5
-3 | 3 | 4
-1s | 4
-4 | 6 |3
-4 | 4 | 5
-4 | 3 | 2
-(9 rows)
 create or replace function print_act() returns int as '
-declare .
-
+declare
 c2 cursor for select a_name , count(b.mno)
 from actor a, mov_act_pro b where a.ano=b.ano
-
 group by a_name order by count(b.mno) desc Limit 1;
-name char(3@);
-
-cnt integer; yee ed
-
-A.30
-Database Management Systems-Il (BCA Science ~ Il) - Assignments
-
+name char(30);
+cnt integer;
 begin
 open c2;
-
 loop
 fetch c2 into name,cnt;
 EXIT WHEN NOT FOUND;
 raise notice ''% %"',name, cnt ;
-» end loop;
+end loop;
 close c2;
 return 1;
 end;
-"LANGUAGE 'plpgsql';
+'LANGUAGE 'plpgsql';
 Execution of Code:
 postgres=# \i cur3.sql
 CREATE FUNCTION
@@ -1961,60 +969,25 @@ postgres=# select print_act();
 NOTICE: Deepika 3
 Output:
 print_act
-
- 
-
- 
-
- 
-
-Trow)
-
-Stored Functions:
+Stored Functions:**************************************************************************
 1. Write a function to list moviewise charges of ‘amitabh Bachchan’,
-
-create or replace function print_ chrge(act_nm text) returns int as
-
- 
-
+create or replace function print_ chrge(act_nm text) returns int as '
 declare
-_ rec record;
+rec record;
 begin
 for rec in select mname, charges
 from movies a , actor b, mov_act_pro c
--where a_name= act_nm and a.mno=c.mno and b.ano=c.ano
-
+where a_name= act_nm and a.mno=c.mno and b.ano=c.ano
 loop
 raise notice ''% %'',rec.mname,rec. charges;
-
 end loop;
-
 return 1;
-
 end;
-
-"LANGUAGE 'plpgsql';
+'LANGUAGE 'plpgsql';
 xecution of Code:
-
 postgres=# \i try4.sql
 CREATE FUNCTION
 gepsteres=# select print_ chrge(‘ Amitabh’ )3
-
-A31_
- 
-
- 
-
-Database Management Systems-Il (BCA Science - Ill) Assignments ‘
-
- 
-
- 
-
- 
-
- 
-
 Output:
 NOTICE: piku $100,000, 000.00
 print_chrge
@@ -2024,315 +997,145 @@ print_chrge
 2. Write a stored function to accept producer name as input and print the names of ;
 movies produced by him/her. Also print the total number of actors in that movie,
 
-create or replace function print_prod(act_nm text) returns int as ‘
+create or replace function print_prod(act_nm text) returns int as '
 declare
 rec record;
 rec1 record;
 begin
 for rec in select distinct c.mno, mname ,pname
-from movies a , mov_act_pro c , producer d.
+from movies a , mov_act_pro c , producer d
 where pname= act_nm and c.pno=d.pno and a.mno=c.mno
-loop . :
-for reci in select count (*) as cnt from mov_act_pro where mno=rec.mno
+loop 
+for rec1 in select count (*) as cnt from mov_act_pro where mno=rec.mno
 loop
-raise notice ''% %'' ,rec.mname,reci.cnt;
-end loop; :
+raise notice ''% %'' ,rec.mname,rec1.cnt;
+end loop; 
 end loop;
 return 1;
 end;
-"LANGUAGE 'plpgsq1';
+'LANGUAGE 'plpgsq1';
 Execution of Code:
 - postgres=# \i t4.sql
-
 CREATE FUNCTION
 postgres=# select print_prod('Amir'); -
-
 - Output:
-
 NOTICE: PK 2
-
 NOTICE: Dangal 3
-
 print_prod
-
- 
-
- 
-
- 
-
- 
-
- 
-
-(1 row) ee
-
-3. Write a stored function to accept movie name as input and print the names of
+3. Write a stored function to accept movie name as input and print the names of actors
 working in the movie.
-create or replace*function
-
- 
-
-print_name(mov_nm text) returns int as
-
- 
-~~
-
-pstebase Management Systems-Il (BCA Science — II!) Assignments
-
- 
-
+create or replace*function print_name(mov_nm text) returns int as '
 declare
 rec record;
-
 begin
-
 for rec in select a_name
-
 from movies a , actor b, mov_act_pro c
-
 where mname= mov_nm and b.ano=c.ano and a.mno=c.mno
-
 loop
-
 raise notice ''% '',rec.a_name;
-
 end loop;
-
 return 1;
-
 end;
-
-“LANGUAGE ‘plpgsql';
+'LANGUAGE ‘plpgsql';
 Execution of Code:
-
 postgres=# \i t4.sql
-
 CREATE FUNCTION
-
 postgres=# select print_name( 'Dangal');
 Output: .
-
 NOTICE: Varun
-
 NOTICE: Anushka
-
 NOTICE: Deepika
-
- 
-
 print_name
-
-woe ee ene n emer e ner
-
 1
-
- 
-
- 
-
- 
-
-(i row)
-Views:
-1 List the names of producers who
+Views:***********************************************************************************
+1 List the names of producers who produce the same movie as ‘Karan Johar’ has
 produced.
 create view V1 as
 select distinct pname
-from movies a, mov_act_pro C » producer d
-where c.mnoz ( select distinct c.mno from movies a ,
-
-produce the same movie as ‘Karan Johar’ has
-
+from movies a, mov_act_pro c,producer d
+where c.mno( select distinct c.mno from movies a ,
 mov_act_pro c,
 producer d
-
-where pname= ‘Karan’ and c,pnoxd.pno and a.mno=c,.mno)
-
-and c,pno=d.pno;
+where pname= 'Karan' and c.pno=d.pno and a.mno=c.mno)
+and c.pno=d.pno;
 Execution of View:
 Postgrese# \i v1.sql
 CREATE VIEW
-Postgrese# select * from v1};
+Postgrese# select * from v1;
 
- 
-
-LL
-A.33
- 
-
-(2 rows)
-
+2.List
+the names of actors who do not live in
+mumbai pune city
 create view V2 as
+select a_name
 from actor
-
 Where a_address not in ('Mumbai', 'Pune');
 
 Execution of View:
 postgres=# \i v1.sql
 CREATE VIEW
-
-List
-the names of actors who do not live in
-
 postgres=# select * from v2;
-
 Output:
-
- 
-
- 
-
- 
-
- 
-
-(3 rows)
-
 3. List the actors in each movie.
-
-‘create view V3 as
+create view V3 as
 select mname, a_name
-
 from movies a ,actor b, mov_act_pro c
-
-where b.ano=c.ano and a.mno=c.mno group by mname,a_name -
-
+where b.ano=c.ano and a.mno=c.mno group by mname,a_name 
 order by mname, a_name;
-
 Execution of Code:
 postgres=# \i vi.sql
-CREATE VIEW
-
+REATE VIEW
 =# select * from v3;
-
- 
-
-Mumbai or Pune city.
-
- 
-
- 
-
- 
-
-postgres
 Output:.
 mname | a_name
-eta + eons - Baactee
 Bajirao mastani | Aliya.
 Bajirao mastani | Deepika
 Dangal | Anushka
-
- 
-
- 
-
- 
-
-A.34
-
- 
-Datnbaso Managomont Systoms-ll (BCA Sclonce ~ Ill) Assignments
-
- 
-
- 
-
- 
-
- 
-
-Dangal | Deepika
+ngal | Deepika
 Dangal | Varun
 Piku | Amitabh
 Piku | Deepika
 PK | Amir
 |__?K | Anushka
 (9 rows)
-Exceptions:
-
+Exceptions:**********************************************************************************
 4, Write a stored function to accept movie name as input and print the names of actors
 working in the movie. Also print the total number of actors working in that
 movie. Raise an exception for an invalid movie name.
-create or replace function print_name1(movnm text) returns int as
-
+create or replace function print_name1(movnm text) returns int as '
 declare
-
 rec record;
-
 total integer:=0;
-
 begin
-
 select into total count(*)
-
 from movies a, actor b, mov_act_pro c
-
 where mname= mov_nm
-
 and b.ano=c.ano
-
 and a.mno=c.mno
-
 group by a_name;
-
 IF NOT FOUND THEN
-raise exception
-
-END IF;
-
-total:=0;
-
-for rec in select. a_name ,count(*) as cnt
-
-actor b, mov_act_pro ¢
-b,ano=c.ano and a.mno=c.mno
-
+raise exception 
 ''Movie % not found'', mov_nm;
-
-from movies a ;
-where mname= mov_nm and
+END IF;
+total:=0;
+for rec in select a_name ,count(*) as cnt
+from movies a,actor b, mov_act_pro c
+where mname= mov_nm and b.ano=c.ano and a.mno=c.mno
 group by a_name
-
 loop
 raise notice ''% %'' pec.a_name,rec.cnt;
-
 total :=total + rec.cnt;
-
 end loop;
-
 raise notice ''Total actors=%'', total;
 return 1;
-
 end;
-
-"LANGUAGE 'plpgsql';
-A.35
- 
-
-Database Management Systems-Il (BCA Sclence — Ill)
-
-Execution of Code:
-
- 
-
-———Asslarneny
-
-postgres=# \i t4.sql
-
+'LANGUAGE 'plpgsql';
 CREATE FUNCTION
-
 postgres=# select print_name1('k11');
-a 4’
-
-Output:
+utput:
 ERROR:
-
 Movie kll not found
-
 postgres=# select print_namel('Dangal');
-
 NOTICE:
 NOTICE:
 NOTICE:
@@ -2344,345 +1147,111 @@ Anushka 1
 
 Total actors=3
 
- 
-
- 
-
-print_namel
-
- 
-
- 
-
+rint_namel
 (1 row)
 
-2. Write a stored function
-Movies produced by him/her..Also print
+2. Write a stored function to accept producer name as input and print the names of
+Movies produced by him/her..Also print the total number of actors in that movie.
 Raise an exception for an invalid produce
-
-create or replace function
-
+create or replace function print_prodi(act_nm text) returns int as '
 declare
-
-to accept producer name as input and print the names of
-the total number of actors in that movie.
-
-r name.
-
-print_prodi(act_nm text) returns int as ‘
-
 rec record;
 reci record;
-total integer :=9;
-
+total integer :=0;
 begin
 select into total distinct c.mno
-from movies 4 ; mov_act_pro © , producer d
-
+from movies a, mov_act_pro c , producer d
 where pname= act_nm
-
-and c.pno=
+and c.pno=d.pno and a.mno=c.mno;
 IF NOT FOUND THEN
-
-raise exception
+raise exception ''tnvalid Producer Name'';
 END IF;
 total:=0;
-for rec in selec
-from “movies a 5
-
-where pn
-and c.pno=d.pno and a-
-
-ame= act_nm
-
-d.pno and a.mno=c.mno;
-
-''tnvalid Producer Name'';
-
-mname ,pname
-
-+t distinct c.mno,
-, producer d
-
+for rec in select distinct c.mno,mname ,pname
+from movies a , producer d
 mov_act_pro c
-
- 
-  
- 
-
-mno=c .-mno
-
-   
-
-A.36
-jemen
-00 Manag t Systemsa-Il (BCA Science — II!) Assignments
-
-oop
-
-ion Pecd 4n select count(*) as cnt from mov_act_pro where mno=rec.mno
+where pname= act_nm
+and c.pno=d.pno and 
+a.mno=c.mno
+loop
+for rc1 select count(*) as cnt from mov_act_pro where mno=rec.mno
 loop
 raise notice ''% %'',rec.mname,reci.cnt;
 end loop;
-
-ond loop;
-
+end loop;
 return 1;
-
 end;
-
 'LANGUAGE 'plpgsql';
-
 cution of Code:
-
 postgres=# \i t5.sql
-
 CREATE FUNCTION
-
 postgres=# select print_prodi(‘gg');
-
 tput:
-
 ERROR: Invalid Producer Name
-
 postgres=# select print_prod1( ‘Amir’ );
-
 NOTICE: Dangal 3 .
-
- 
-
 NOTICE: PK 2
 print_prodi
 1
-
- 
-
- 
-
- 
-
-   
-  
-  
-
-  
-
-    
-
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 Consider the following Student-Marks database:
-
 Student(rollno integer, name varchar(30), address varchar
-
 Subject(scode varchar(10), subject name yvarchar(20))
 Student-Subject are related with M-M relationship with a ibutes marks_scored.
-
 Create the above database in PostGreSQL.
 Create table student
-
 (
-
-Sno integer primary key,
-Sname char(3@),
-
-Sclass char(10),
-
-uae char(5®)
-
-’
-
-(50), class varchar(10))
-
-ce table subject (
-—_Scede varchar(10) primary key,
-
- 
-
- 
-
- 
-
-A.37
- 
-
-Database Management Systems-ll (BCA Science — Il) Ass|
-; GNmep
-ly
-sub_name varchar(3@)
-)3
-
-A
-
-(
-
+  sno integer primary key,
+  sname char(30),
+  sclass char(10),
+  saddr char(50)
+);
+create table subject (
+scode varchar(10) primary key,
+sub_name varchar(30)
+);
 create table stud_sub
-
+(
 sno integer references student(sno),
+scode varchar(10) references subject(scode),
+marks integer
+);
+insert into student values(1, 'Amol', 'fybca', 'pune' );
+insert into student values (2, 'Archana', 'fybca', 'pune');
+insert into student values (3, 'kiran', 'sybca', 'pune' );
+insert into student values(4, 'Omkar','sybca', 'pune');
+insert into student values(5, 'Suresh', 'tybca','pune');
+insert into student values(6, 'Reena', 'tybca', 'Mumbai' );
 
-scode varchar(10)
 
-marks
-)3
-insert
-insert
-insert
-insert
-insert
-insert
+insert into subject values ('BCA-301', 'DS');
+insert into subject values('BCA-302', 'ARDBMS' );
+insert into subject values('BCA-303','SE');
+insert into subject values('BCA-304','CN');
+insert into subject values('BCA-305','LAB-I');
+insert into subject values('BCA-306', 'LAB-II');
+insert into subject values('BCA-101','C');
+insert into subject values('BCA-501', 'JAVA');
 
-insert
-insert
-insert
-insert
-insert
-insert
-insert
-insert
+insert into stud_sub values(3, 'BCA-301' ,60);
+insert into stud_sub values (3, 'BCA-302' ,80);
+insert into stud_sub values (3, 'BCA-303',50);
+insert into stud_sub values (3, 'BCA-304' ,70);
+insert into stud_sub values (3, 'BCA-305' ,86);
+insert into stud_sub values (3, 'BCA-306',76);
+insert into stud_sub values (4, 'BCA-301' ,60);
+insert into stud_sub values (4, 'BCA-3@2' ,40);
+insert into stud_sub values (4, 'BCA-303' ,50);
+insert into stud_sub values (4, 'BCA-304' ,70);
+insert into stud_sub values (4, 'BCA-305",46);
+insert into stud_sub values (4, 'BCA-306',56);
+insert into stud_sub values(1, 'BCA-101' ,60);
+insert into stud_sub values(2, 'BCA-101' , 80) ;
+insert into stud_sub values(5, 'BCA-5@1' ,70);
+insert into stud_sub values(6, 'BCA-501' ,80);
 
-W
-
-insert
-insert
-- insert
-insert
-insert
-insert
-insert
-- insert
-insert
-insert
-Pea hae _ insert
-insert
-VI insert
-1 insert
-insert
-1 insert
-
- 
-
-integer
-
-into
-into
-into
-into
-into
-into
-
-into
-into
-
-‘into
-
-into
-into
-into
-into
-into
-
-into
-into
-into
-
-into
-into
-
-into
-into
-into
-into
-into
-into
-into
-into
-into
-into
-into
-
-references subject(scode),
-
-stud values(1, ‘Amol’, ‘fybca’, ‘pune’ )5
-stud values (2, ‘Archana’, 'fybca', pune");
-stud values (3, 'kiran', 'sybca', ‘pune’ );
-
-stud val
-stud val
-stud val
-
-subject
-subject
-subject
-subject
-subject
-subject
-subject
-subject
-
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-stud_sub
-
-ee Execution of Query:
 postgres=# select * from student;
-
-ues(4, ‘Omkar", ‘sybca", ‘pune');
-ues(5, ‘Suresh’, ‘tybca’, ‘pune');
-ues(6, Reena’, 'tybca', ‘Mumbai’ );
-
-values('BCA-301', DS");
-values ('BCA-302', 'ARDBMS’ );
-values('BCA-303','SE')5
-values('BCA-304','CN');
-
-values ('BCA-305', "LAB-I');
-
-values (*BCA-306', ‘LAB-II");
-values('BCA-101','C");
-values(‘BCA-501', 'JAVA");
-
-values(3, 'BCA-301' ,60);
-values (3, 'BCA-302' ,8@);
-values (3, 'BCA-303',5@)5
-values (3, 'BCA-304' ,7®);
-values (3, 'BCA-305' ,86);5
-values (3, 'BCA-306',76);
-values (4, 'BCA-301' ,68)3 _
-values (4, 'BCA-3@2' ,48);
-values (4, 'BCA-303' ,50);
-values (4, 'BCA-304' ,7@);
-values (4, 'BCA-305",46);
-values (4, 'BCA-306',56);
-values(1, ‘BCA-101' ,6@);
-values(2, 'BCA-101' , 80) ;
-values(5, 'BCA-5@1' ,7®);
-values(6, 'BCA-501' ,8@);
-
- 
-
- 
-
-A.38
-patabase Management Systems-Il (BCA Science - III)
-
- 
-
- 
-
- 
-
-output:
+utput:
 sno | sname | sclass | saddr
 ercenee Fp rermrerceeemmnne ob monn nnn enneme fy mann ence mene
 1 | Amol | fybca =| Pune
@@ -2693,20 +1262,8 @@ ercenee Fp rermrerceeemmnne ob monn nnn enneme fy mann ence mene
 6 | Reena | tybca | Mumbai
 (6 rows)
 Execution of Query:
-
 postgres=# select * from subject;
 Output:
-
- 
-
- 
-
- 
-
- 
-
- 
-
 scode | sub_name
 ae + ---------------------
 BCA-301 | Ds
@@ -2735,74 +1292,21 @@ haneee fp necnceeeneneceee of ceceneceenneenes
 4 |BCA-304 | 70
 4 | BCA-305 | 46
 4 | BCA-306 | 56
-
- 
-
- 
-
- 
-
-Assignments —
-
- 
-
- 
-
-A.39
-Database Management Systems-lI (BCA Science — i)
-
-Ass
 4 |.BCA-306 | 56 a
-
- 
-
- 
-
- 
-
 1 | BCA-101 | 60
-
 2 | BCA-101 | 80
-
 5 | BCA-501 | 70
-
 6 | BCA-501 | 80
 (16 rows)
-
 Execute the Following Queries:
-1. Display the names of students sco
-select sname » sum(marks)
-
-from student a, subject b,stud_sub Cc
+1. Display the names of students scoring the maximum total marks,
+select sname ,sum(marks)
+from student a, subject b,stud_sub c
 where a.sno=c.sno
-
 and b.scode=c.scode
 group by sname
-
-ring the maximum total marks,
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-order by sum(marks) desc os
-limit 1; |
+order by sum(marks) desc 
+limit 1; 
 Execution of Query:
 postgres=# \i a4.sql
 - Output:
@@ -2824,36 +1328,10 @@ BCA-306 | LAB-II
 BCA-101 j-¢€
 BCA-501 | JAVA
 
- 
-
- 
-
-(8 rows) | fees : Le
-
--A.40
-
- 
-Database Management Systems-Il (BCA Science — )
-
-Assignments
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 | 3. Display class wise Ssubject wise student list.
-[ select sclass, sname from student
-: group by sclass, sname
-E order by sclass, sname;
-P Execution of Query:
+ select sclass, sname from student
+ group by sclass, sname
+ order by sclass, sname;
 bE postgres=# \i a4.sql
 | Output: ,
 sclass | sname
@@ -2867,41 +1345,16 @@ tybca | Suresh
 (6 rows) |
 
 select sclass,sub_name,sname
-
 from student a,subject b,stud_sub c.
 where a.sno=c.sno
-
 and b.scode=c.scode
-
 L group by sclass,sub_name, sname
-
 b order by sclass,sub_name, sname;
-
 tion of Query:
-
-   
-  
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 Ee postgres=# \i a4.sql
-
 Cutput:
-
 sclass | sub_mame | sname
-
 —--- + - nan HH --
-
 fybca } Cc | Amol
 fybca | Cc | Archana
 sybca | ARDBMS | Amar
@@ -2909,31 +1362,9 @@ sybca | ARDBMS | Kiran
 sybca | CN | Amar
 sybca [| CN | Kiran
 sybca | Ds | Amar
-
 sybca | | Ds | Kiran
-
 | sybca | LAB-I | Amar
-
 _Lsybea | LAB | _Kiran
-
- 
-
-A.41
-
- 
-Database Management Systems-Il (BCA Sclence — Ill)
-
- 
-
- 
-
- 
-
- 
-
- 
-
-ASslanmant
 sybca | LAB-II | Amar
 sybca | LAB-II | Kiran
 sybca | SE | Amar
@@ -2941,12 +1372,11 @@ sybca | SE | Kiran
 tybca | JAVA | Reena
 tybca | JAVA | Suresh
 (16 rows) ;
-Cursor and Triggers: ys
+Cursor and Triggers: ***********************************************************************************
 1. Write a stored function using cursors, to accept a address from the user and dj
 the name, subject and the marks of the students staying at that address, “Day
 create or replace function print_mk(adr text) returns int as '
 declare .
-
 c2 cursor for select sname,sub_name, marks
 from student a,subject b,stud_sub c
 where saddr=adr
@@ -2965,100 +1395,43 @@ end loop;
 close c2;
 return 1;
 ~ end;
-
 "LANGUAGE 'plpgsql' ;
-
 Execution of Code:
 postgres=# \i cur1.sql
 CREATE FUNCTION
 
 postgres=# select print_mk('pune');
-
- 
-
 Output:
 NOTICE: Amol C. 60
 NOTICE: Archana | Cc. 80
-
 “NOTICE: kiran ~ DS 60
-
- 
-
-A.42
-
- 
-es
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-Database Management Systems-II (BCA Science — III) Assignments
-
 NOTICE: kiran ARDBMS_ 8@
-
 NOTICE: kiran SE 56
-
 NOTICE: kiran CN 728
-
 NOTICE: kiran LAB-I 86
-
 NOTICE: kiran LAB-II 76
-
 NOTICE: Amar DS 60
-
 NOTICE: Amar ARDBMS 4@
-
 NOTICE: Amar : SE 58
-
 NOTICE: Amar CN 7@.
-
 NOTICE: Amar LAB-I 46
-
 NOTICE: Amar LAB-II 56
-
 NOTICE: Suresh JAVA 70
-
 print_mk
-
 1
-
 (1row)
 Execution of Code:
-
 postgres=# select print_mk( ‘Mumbai ');
-
 NOTICE: Reena JAVA 80
 Output:
-
 print_mk
-
 1
-
 (1 row) : 1y
 2. Write a stored function using cursors which will calculate total marks of each
 student.
-
 create or replace function print_perc() returns int as *-
-
 declare
-
 c2 cursor for select sclass,sname, sum(marks)
-
 from student a,subject b,stud_sub c
 Where a.sno=c.sno
 and b.scode=c.scode
@@ -3069,26 +1442,14 @@ Class varchar(30);
 mks integer;
 begin
 Open c2;
-
- 
-
-A443
-Database Management Systems-ll (BCA Science ~ Ill)
-
- 
-
-Tony
 raise notice ''Class Name Total Marks'';
 Ot at me mo me oe wr,
 raise notice | nnn nnn n nnn enn enna ’
 loop
-
 fetch c2 into class,name,mks;
 EXIT WHEN NOT FOUND;
-
 raise notice ''% % % '',class,name,mks;
 end loop;
-
 close c2;
 return 1;
 end;
@@ -3097,17 +1458,7 @@ Execution of Code:
 postgres=# \i cur4.sql
 CREATE FUNCTION
 postgres=# select print_perc();
-
- 
-
- 
-
- 
-
- 
-
 Output:
-
 NOTICE: Class Name Total Marks
 NOTICE: ----------------- nee ielelalaleloletelaleleotel
 NOTICE: fybca Amol 60
@@ -3117,68 +1468,45 @@ NOTICE: sybca kiran 422
 NOTICE: tybca Reena ‘80
 NOTICE: tybca Suresh 70
 print_perc
-
 1
 (1 row)
-
 Write a trigger before deleting a student record from the student table. Rast *
 notice.and display the message '
-
 “student record is being deleted”,
 create or replace function p
-
 rint_notice.stud() returns trigger as '
 declare
 begin
-
 RAISE NOTICE ""deletin
 return null;
-
 ' end;
 " LANGUAGE ‘plpgsql';
 CREATE TRIGGER del_student2
 BEFORE DELETE ON student
 FOR EACH ROW
-
 EXECUTE PROCEDURE print_notice_stud();
-
 g Student data mt
-
 we
-
 Lae
-
 A.44
-——
-
 pase Management Systems-Il (BCA Science — II) Assignments
-
 ecution of Code:
 ostgres=# \i tr.sql
 CREATE FUNCTION
-
 “aEATE TRIGGER
 postgres=# delete from student where sno=6;
-
 ut:
 NOTICE:
 DELETE 9
-
 postgr es=#
 Write a trigger to ensure that the marks entered for a student, with respect to a
-
 subject is never < 0 and greater than 100.
 create or replace function chk_stud1() returns trigger as '
-
 deleting Student data ..
-
 declare
-
 begin
 if NEW.marks < @ or NEW.marks > 100 then -
-
 raise notice ''Marks should be never < @ or Marks should be | never > 168°’;
-
 end if;
 return null;
 end;
@@ -3208,26 +1536,11 @@ a by sname,sclass
 Srder by sname, sclass
 
 Marks should be never < @ or Marks should be never > 100
-
- 
-
-A.45 ©
- 
-
-} Database Management Systems-ll (BCA Science — Ill)
 Assigning
 Execution of View: ats
 postgres=# \i a4.sql
 CREATE VIEW
 postgres=# select * from v4;
-
- 
-
- 
-
- 
-
- 
 
 Output:
 sname | sclass | sum
@@ -3239,10 +1552,8 @@ Kiran | sybca | 422
 Reen | tybca | 80
 Suresh | tybca | 70
 (6 rows)
-
 - 2. To list student names along with subject name and markswho s
 60 marks. Cored move tha
-
 create view v5 as —
 select sname ,sub_name, marks
 from student a,subject b,stud_sub c
@@ -3251,16 +1562,6 @@ where a.sno=c.sno
 and b.scode=c.scode
 and marks > 60
 order by sname,sclass-
-
- 
-
- 
-
- 
-
- 
-
- 
 
 Execution of View: _ | |
 postgres=# \i a4.sql att |
@@ -3280,12 +1581,6 @@ Kiran | CN | 70. | . 4
 “Reen | JAVA | 80 .. abt a
 Suresh | JAVA | 70 /
 _ (8 rows)
-
- 
-
- 
--
-
 patabase Management Systems-Il (BCA Science — Il) Assignments
 Datadbas’-
 
@@ -3300,25 +1595,6 @@ Execution of View:
 postgres=# \i a4.sql
 CREATE VIEW
 postgres=# select * from v8;
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
 Output:
 sname | sclass | saddr | sub-name | marks
 + th mene en nn enna ne + --=- +
@@ -3329,135 +1605,70 @@ Amar | sybca | pune | CN | 70
 Amar | sybca |. pune |  LAB-I | 46
 Amar | sybca | pune | LAB-IT | 56
 (6 rows)
-
- 
-   
-
- 
-
- 
-  
-
-* Consider the following Bus transport Database.
+* Consider the following Bus transport Database$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.
 bus (bus_no integer , Capacity integer , depot_name varchar(20), route_no integer)
 Toute (route_no integer, source char(20), destination char(20), No_of_stations integer)
 driver (driver no integer, driver_name char(20), license_no integer, address Char(20)
 + 28e integer, salary float) |
-
 "s_route : M-1 and Bus_Driver : M-M with descriptive attribu
 and shift can be1 (Morning)or 2 ( Evening), r Pees aa ee
 Constraints:1.License_no is unique. 2, Bus capacity is not null.
 Create the above database in PostGreSQL.
 Create table route(
 route _no integer primary key,
-src varchar(3@),
-. dest varchar(3@),
+src varchar(30),
+dest varchar(30),
 
-"o_Of_station integer
-?
-
-C fate table bus
-
+no_of_station integer
+);
+create table bus(
 bus_no integer primary key,
-
- 
-
-A.47
-Database Management Systems-Il (BCA Science — Ml) Assignments
-
 capacity integer not null,
 depot_name char(36),
 route_no integer references route (route_no)
-3
+);
 create table driver
-¢
+(
 dno integer primary key,
-dname varchar(3@),
+dname varchar(30),
 lic_no integer unique ,
-address varchar(3@),
+address varchar(30),
 age integer ,
 salary float
-3
+);
 create table bus_driver
-¢
+(
 bus_no integer references bus(bus_no),
 dno integer references driver(dno),
-date_of_duty date, :
+date_of_duty date,
 shift integer CHECK(shift in (1 ,2))
-3 f
-insert into route values(1,'Hadapsar’,'Katraj', 20);
+);
+insert into route values(1,'Hadapsar','Katraj', 20);
 insert into route values(2,'Hadapsar','Kothrud', 25); .
-‘insert into route values(3, 'Hadapsar','Chinchwad', 30);
+insert into route values(3, 'Hadapsar','Chinchwad', 30);
 insert into route values(4, 'Nigadi','Hadapsar', 30);
-insert into route values(5, ‘Kothrud', 'Katraj", 22);
+insert into route values(5, 'Kothrud', 'Katraj', 22);
 
  
 
 insert into bus values(101,35, 'Hadapsar',1);
 insert into bus values(102,20, 'Hadapsar' ,2);
-insert into bus values (103,32, ‘Hadapsar' ,3);
+insert into bus values (103,32, 'Hadapsar' ,3);
 insert into bus values(104,25, 'Nigadi',4);
-
-insert into bus values(105,5, ‘Kothrud',5);
-
-insert into bus values(106,25, ‘Kothrud',5);
+insert into bus values(105,5, 'Kothrud',5);
+insert into bus values(106,25, 'Kothrud',5);
 insert into bus values(107,35, 'Hadapsar' ,3);
 
-insert into driver
-insert into driver
-insert into driver
-insert into driver
-insert into driver
+insert into driver values(1,'Amol', 1001, 'Pune',55,15000);
+insert into driver values(2, 'Ashok', 2001, 'Karad' ,45,12000);
+insert into driver values(3,'Bhushan', 3001, 'Pune' ,35,10000);
+insert into driver values(4,'Kiran', 4001, 'Satara' ,25,8000);
+insert into driver values(5,'Ram', 5001,'Pune',32,9000); 
 
-values(1,'Amol', 1001, 'Pune',55,15000);
-values(2, ‘Ashok’, 2001, 'Karad' ,45,120@0);
-values(3,'Bhushan', 3001, 'Pune' ,35,10000);
-values(4,'Kiran', 4001, 'Satara' ,25,80@@);
-values(5,'Ram', 50@1,'Pune',32,9000); -
-
-insert into
-insert into
-insert into
-
-bus_driver values(101,1, '2014-@4-20' ,1);
-bus_driver values (102,2, '2014-@4-2@! ,2);
-bus_driver values (103,3,'2015-@4-20' ,1);
-
-A.48
-wa
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-patabase Management Systems-lIl (BCA Science — III) Assignments
-insert into bus_driver values(1e4,4, '2016-04-20',2);
+insert into bus_driver values(101,1, '2014-04-20' ,1);
+insert into bus_driver values (102,2, '2014-04-20' ,2);
+insert into bus_driver values (103,3,'2015-04-20' ,1);
+insert into bus_driver values(104,4, '2016-04-20',2);
 insert into bus_driver values (105,5,'2017-04-20',1);
 insert into bus_driver values(106,3, '2015-04-20',2);
 insert into bus_driver values(107,4,'2016-04-20',1);
@@ -3498,40 +1709,6 @@ _| Archana | 2001 | Pune | 45 | 12000
 | Suresh | 5001 | Pune | 32 | 9000
 (5 rows)
 | AAD
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-—
-Database Management Systems-il (BCA Sclence — Ill) a Aasignmes its
-Execution of Query:
-
 postgres=# select * from bus_driver;
 Output:
 | bus_no | dno | date_of_duty | shift
@@ -3550,10 +1727,9 @@ Output:
 
 | Execute the Following Queries:
 
-4% Find out the name of the driver having maximum salary, |
-select dname, salary
-from driver : =
-wnere salary = (select max(salary) from driver );
+ 1.Find out the name of the driver having maximum salary,
+ select dname, salary
+from driver wnere salary = (select max(salary) from driver );
 Execution of Query:
 postgres=# \i as51.sql
 Output:
@@ -3563,63 +1739,25 @@ Amol | 15000
 (i row)
 2. Delete the record of bus having capacity< 10
 postgres=# delete from bus where Capacity < 10;
-3. Increase the salary of all drivers byS% if driver's age> 45,
+3. Increase the salary of all drivers by5% if driver's age> 45,
 update driver
-set salary = salaryt+salary * 0,05
+set salary = salaryt+salary * 0.05
 where age > 45;
 Execution of Query:
 postgres=# \i as51.sql
 UPDATE 1
 postgres=# select * from driver;
-Oe
-
- 
-
- 
-
-A.50
-
- 
-_
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-patabase Management Systems-Il (BCA Science -— III) . Assignments
 output
 dno | dmame | licno | address | age | salary
-eoeee= op cecseorerarartr cb concreteness ob concen ene nnen of cee n ne eeee of nace enenne
 2 | Ashok | 2001 | Karad | 45 | 12000
 3 | Bhushan | 3001 | Pune | 35 | 10000
 4 | Kiran | 4001 | Satara | 25 | 8000
 5 | Ram | 5001 | Pune | 32 | 9000
 1 | Amol | 1001 | Pune | 55 | 15750
 (5 rows) .
-
 4. Find out the route details on which buses of capacity 20 run.
 select a.route_no , src, dest , capacity from route a, bus b
-
-where b.capacity=20 and a.route_no = b.route_no; .
-
- 
-
- 
-
- 
-
- 
-
- 
-
+where b.capacity=20 and a.route_no = b.route_no; 
 Execution of Query:
 postgres=# \i as51.sql
 Output:
@@ -3630,39 +1768,18 @@ route_no | src . | dest . | capacity
 
 5. Print the names and license nos. of drivers working on in both shifts.
 select dname,lic_no from driver a, bus_driver b
-
 where b.shift = 1 and a.dno = b.dno
-
 intersect
-select dname,lic_no from driver 4,
-_ Where b.shift = 2 and a.dno = b.dno;
+select dname,lic_no from driver a,bus_driver b
+where b.shift = 2 and a.dno = b.dno;
 Execution of Query: |
 Postgres=# \i as51.sql
 Output:
-
-bus_driver b
-
- 
-
- 
-
- 
-
- 
-
-‘A5S1
-Database Management Systems-ll (BCA Science — Ill) Assignmonts
-—anments
-
-~ Cursor and Trigger:
-
+~ Cursor and Trigger:*****************************************************************************************************
 1. Define a trigger after insert or update the record of driver if the age is between 18 ang
-
 50 give the message “valid entry” otherwise give appropriate message.
-
 create or replace function chk_age() returns trigger as '
 declare
-
 begin
 if NEW.age > 18 and NEW.age < 50 then
 raise notice ''Valid Entry''; .
@@ -3679,25 +1796,11 @@ EXECUTE PROCEDURE chk_age();
 Execution of Code: |
 postgres=# \i trg5.sql
 CREATE FUNCTION
-
 CREATE TRIGGER
 Output: :
-
- 
-
 postgres=# insert into driver values(7,'Paul', 7001, ‘Pune’, 17,5000);
 ERROR: Age is not appropriate
-
 postgres=# select * from driver;
-
- 
-
- 
-
- 
-
- 
-
 dno | dname | licno | address | age | salary
 weoene dh corre reece meee of mee neeneennee fe cronemenennme dy momennmmae of maaan mme nme
 4 |Amol -°| 1001 | Pune | 55 = | 15750
@@ -3706,11 +1809,7 @@ weoene dh corre reece meee of mee neeneennee fe cronemenennme dy momennmmae of m
 4 | Kiran | 4001 | Satara | 25 | 8000
 5 | Ram | 5001 | Pune | 32 | 9000
 (5 rows)
-
-A:52
-Jatabase Management Systems-II (BCA Sclence — III) Assignments
-
-), Define a trigger after delete the record of bus having capacity< 10. Display the
+ Define a trigger after delete the record of bus having capacity< 10. Display the
 "message accordingly.
 create or replace function print_notice_bus() returns trigger as '
 declare
@@ -3722,7 +1821,6 @@ end if;
 return null;
 end;
 "LANGUAGE 'plpgsql1';
-
 CREATE TRIGGER del bus trg3
 - AFTER DELETE ON bus ~
 FOR EACH ROW
@@ -3747,52 +1845,22 @@ loop
 fetch c2 into dname,dlic,dage,dsal;
 EXIT WHEN NOT FOUND; ,
 raise notice ''%% % %'',dname,dlic,dage,dsal;
-
 end loop;
-
- 
-
-A.53
- 
-
- 
-
-Database Management Systoms-tl (BCA Selence = Il)
-
- 
-
-Asalgn
-——Asalanmonte
-
 Close ¢2;
-
 return 13
-
 end;
-
 “LANGUAGE * Plpgsql'3
 Execution of Code:
-
 postgres=# \i curS.sql
 CREATE FUNCTION
-
 postgres=# select print_driver('Amol');
 Output
-
 NOTICE: Amol 1001 55 15750
 print_driver
-
- 
-
- 
-
-4
 (1 row)
-Stored Functions:
-
+Stored Functions:*********************************************************************************************************
 1. Write a stored function to print the names of drivers working on pol shifts on
 ‘20/04/2014’.
-
 create or replace function print_dri_shift(dt date) returns int as '
 declare
 rec record;
@@ -3814,25 +1882,9 @@ postgres=# insert into bus_driver values(106,1,'2@14-04-20' ,2);
 INSERT @ 1
 postgres=# \i curS.sql
 CREATE FUNCTION
-
 postgres=# select print_dri_shift('2014-@4-29');
-
- 
-
- 
-
-A.54
-
- 
-Database Management Systems-Il (BCA Science — Ill) - Assignments
-
 output:
 NOTICE: Amol
-
- 
-
- 
-
 (row) ©
 2. Write a stored function to display the details of a driver, (accept driver name as input.
 parameter).
@@ -3842,53 +1894,31 @@ rec record;
 begin
 for rec in select dname,lic_no,age, salary
 from driver where See =name
-
 loop
 raise notice ''%% % Bi 'rec. dname, rec.lic_no,rec.age,rec. salanys
-
 wee
-
 end loop; State
 ~peturn 1;
-
 end;
-
 "LANGUAGE '‘plpgsql';-
 _ Execution of Code: _
 _postgres=# \i curS.sql
 CREATE FUNCTION
 postgres=# oe print_dri dtl (" Amol");
-
- 
-
-_ Output:
+ Output:
 NOTICE: Amol 1001 “55 -15750
 print_dri_dtl
-
- 
-
- 
-
- 
-
 (1 row)
 3. Write a function to accept the bus_no, date & print its allotted driver.
-
 create or replace function print_dri_bus(no integer, dt date ) returns int
-
 as '
 declare
 ~ Pec record;
 begin
 for rec in select dname,bus_no
 from driver a , bus_driver b where b.bus_no=no
-
-ASS"
-watabe Assignmen
-Se Management Systems-Il (BCA Science - Ill) ts
-
+SS"
 aad b.date_of_duty=dt and a.dno=b.dno
-
 loop
 raise notice ''% % '',rec.dname,rec.bus_nos
 end loop;
@@ -3896,118 +1926,60 @@ _heturn 1;
 end;
 “LANGUAGE ‘plpgsql';
 Execution of Code:
-
 postgres=# \i curS.sql
 CREATE FUNCTION
 postgres=# select print_dri_bus(101, '2014-04-28");
-
- 
-
- 
-
- 
-
- 
-
- 
-
 Output:
 NOTICE: Amol 101
 print_dri_bus
 i
 (1 row)
 Views: s
-
 4. Which contains details of bus no 101 along with details of all drivers who have driven
 that bus. S /
 create view v51 as
 select a.*
 from driver a , bus_driver b
-
 _ where b.bus_no=101
 and a.dno=b.dno;
-
 Execution of View:
 postgres=# \i v5.sql
 CREATE VIEW
 select * from v51;
-
 Output:
-
- 
-
 licno | address | Aaa I
-
- 
-
- 
-
 (1 row)
-
 2. To display the details of the buses that run on routes 1 a
 create view v512 as .
-
 select distinct b.* from route a: ahiese |
 where b.route_no=1 or b.route_no=2 and a.route no=b . can
 ° — =0.rou e_no;
-
-A.56
-SS
-
-Database Management Systems-II (BCA Science — Hil)
-
 Execution of Code:
 postgres=# \i v5.sql
 CREATE VIEW
 select * from v512;
-
- 
-
- 
-
- 
-
 Output:
 ‘bus_no | capacity |depot_name | route_no
 wecneennenene wp ence enn n nnn ene fp nee ene nen nen nen cnn fp cnn ences cnn
 102. | 20° | Hadapsar | 2
 101 =| 35 | Hadapsar | 1;
 (1 row) ,
-
 3. To find out the name of the driver having maximum salary.
-
 create view v53 as
-
 select dname ,salary from driver
-
 where salary = (select max(salary) from. driver Ms
 Execution of View:
-
 postgres=# \i v5.sql
-
 CREATE VIEW
-
 select * from v533.
-
- 
-
- 
-
- 
-
- 
-
-Output
+tput
 dname | salary
 a4 nos, epee
 Amol | 15750
 _ (1row)
-
 4. To accept the bus_no and date and print its allotted driver.
-
 create view v54 as
 select dname,bus_no from driver a, bus_driver b
-
 where b.bus_no=102 and b. date_of_duty='2014-04-20'
 and a.dno=b.dno;
 Execution of Code:
@@ -4018,69 +1990,26 @@ Output:
 dname | bus_no
 an pueante ease
 Ashok | 102
-
- 
- 
-
-  
- 
-
- 
-
 Assignments
-
- 
-
- 
-
-A.57
-
-Ae .
-ies
-a.
-Database Management Systems-II (BCA Science — Ill)
-
 Execution of Code:
 postgres=# \i v5.sql
-CREATE VIEW
+CREATE VIEW******************************************************************************************************************
 select * from v512;
-
- 
-
- 
-
- 
-
- 
-
 Output:
 ‘bus_no | capacity | depot_name | route_no
 weneeenannens Hh nen nn nnn n nn nnnnn ob nan nn nnn en nnn nn nn fp nen ne en ene ne ee
 102 | £20 | Hadapsar | 2
 | _ 101 | 35 | Hadapsar | A;
 (1 row) |
-
 3. To find out the name of the driver having maximum salary.
-
 create view v53 as
 select dname ,salary from driver
-
 where salary = (select max(salary) from driver );
 Execution of View: ;
-
 postgres=# \i v5.sql
-
 CREATE VIEW
-
 select * from v533.
 Output:
-
- 
-
- 
-
- 
-
 Amol | 15750
 (1 row) :
 4, To accept the bus_no and date and print its allotted driver.
@@ -4097,49 +2026,21 @@ _|dname | bus_no
 o--2------ sponnnennnnnnn
 Ashok | 102
 
- 
-
-   
- 
-
-  
-
- 
-
-Assignments
-
- 
-
- 
-
- 
-
-“A.57
-Database Management Systems-Il (BCA Science — III) Assignments
-
-Exceptions:
+Exceptions:*******************************************************************************************************************
 1. Write a stored function to accept the bus_no and date and print its allotted drivers.
-
 Raise an exception in case of invalid bus number.
-
 create or replace function print_dri_bus(no integer, dt date ) returns int
 as *
-
 declare
 rec record;
 begin
-
 select * into rec from bus_driver where bus_no = no and date_of_duty=dt;
 if NOT FOUND then
-
 raise exception ‘'Invalid bus no'';
 end if;
-
 for rec in select dname,bus_no
 from driver a , bus _driver b
-
 where b.bus_no=no and b.date_of_duty=dt and a.dno=b.dno
-
 loop
 raise notice ‘'% % '',rec.dname,rec.bus_no;
 end loop;
@@ -4147,9 +2048,7 @@ return 1;
 end;
 "LANGUAGE ‘plpgsql';
 Execution of Code:
-
 postgres=# \i fun5.sql
-
 CREATE FUNCTION
 
 postgres=# select print_dri_bus(11, '2014-04-290');
