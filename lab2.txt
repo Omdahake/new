@@ -1,0 +1,516 @@
+Q1,Write the HTML code to display the rainbow color names using Ordered List. Modify the code to 
+display eachcolor name with the same color of rainbow using font tag. Apply page background color as 
+black.
+=><ol>
+  <font size=6 color=red><li>RED</li></font>
+  <font size=6 color=Orange><li>ORANGE</li></font>
+  <font size=6 color=yellow><li>YELLOW</li></font>
+  <font size=6 color=green><li>GREEN</li></font>
+  <font size=6 color=blue><li>BLUE</li></font>
+  <font size=6 color=indigo><li>INDIGO</li></font>
+  <font size=6 color=violet><li>VIOLET</li></font>
+</ol>
+**********************************************************************************************
+Q1.a).Create an html page containing the polynomial expression as follows:
+=><HTML>
+<HEAD><TITLE><CENTER>My CITY</CENTER></TITLE></HEAD>
+<BODY BGCOLOR="PINK">
+<FONT SIZE="7" FACE="ARIAL" COLOR="ORANGE"><CENTER>
+<big><b>15</b>X</big><sub><small>4</small></sub>+<big><b>9</b>X</big><sub>
+<small>3</small></sub>+<big><b>4</b>X</big><sub>
+<small>2</small></sub>+
+<big><b>2</b>X</big><sub>
+</sub>
++<big><b>4</b></big>
+
+
+<CENTER>
+</BODY>
+</HTML>
+**********************************************************************************************
+Q1.Write the HTML code which generates the following output
+SYBCA (Science) Course Objectives
+=><font size=7 ><center><p>SYBCA (Science) Course Objectives</center>
+</p></font>
+<ol type="I">
+<li>Data stucture
+   <ul type="circle">
+   <li>To understand algorithms and analysis of algorithms</li>
+   <li>To learn static and dynamic data structure</li>
+   </ul>
+<li>Database Management System II
+    <ul type="disc">
+    <li>To understand advanced SQL and procedural sql</li>
+    <li>To study concurrency control and crashe recovery techniques</li>
+    </ul>
+<li>Computer Networks
+    <ul type="square">
+    <li>To learn role of protocols at various layers in the protocol stacks</li>
+    <li>To study different techniques 	for framing,error cntrol,flow cntrol and routing</li>
+    </ul>
+</ol>
+********************************************************************************************
+Q1.Create an html5 page with following specifications
+a. Title should be about MYCOLLEGE
+b. Put the windows logo image in the background 
+c. Place your college name at the top of the page in large text followed by address in smaller size
+d. Add names of courses offered each in a different color, style, and typeface 
+e. Add scrolling text with message of your choice
+f. Add college image at the bottom
+=><html>
+<head>
+<title>My college
+</title>
+</head>
+<body bgcolor="cyan">
+<center> 
+<font size="10">Your College Name<sub>College location </sub><br>
+<b><font color="red" size="2">Bsc Computer Sci.</font><br>
+<u><font color="orange" size="3">Bsc Defence</font></u></br>
+<i><font color="red" size="4">B.com</font></i>
+<marquee>Scrolling message of your choice</marquee>
+<br><br><img src="https://codeforever.in/wp-content/uploads/2021/09/College-e1631202202654.jpg"/></br></br>
+</b>  
+</body>
+</html>
+**********************************************************************************************
+Q1. Write the HTML code to display day wise SYBCA time table in tabular format.
+=><h3>SYBCA(sci) TIME TABLE</h3>
+<table border=1 width=90% bordercolor=black align=center>
+<tr>
+<th>Time</th>
+<th>MON</th>
+<th>Tue</th>
+<th>WED</th>
+<th>THUS</th>
+<th>FRI</th>
+<th>SAT</th>
+</tr>
+<tr>
+<td>11am to 12pm</td>
+<td>dsa</td>
+<td>-</td>
+<td>cn</td>
+<td>dsa</td>
+<td>dsa</td>
+<td>dbms</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td></tr>
+<tr><td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td></tr>
+<tr><td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td></tr>
+<tr><td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td></tr>
+<tr><td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td></tr>
+</table>
+*********************************************************************************************
+Q1.Write the HTML code which generates the following output. 
+Add more colors in following table.
+=><h3>QUTION TABLE</h3>
+<table border=1 width=90% bordercolor=black align=center>
+<tr>
+<th>Color</th>
+<th>Name</th>
+<th>Hexadecimal</th>
+<th>RGB value</th>
+</tr>
+<tr>
+<td bgcolor="salmon"></td>
+<td>Salmon</td>
+<td>FA8072</td>
+<td>250-128-114</td>
+</tr>
+<tr>
+<td bgcolor="gold"></td>
+<td>gold</td>
+<td>FFD700</td>
+<td>250-215-0</td>
+</tr>
+</table>
+<br>
+**********************************************************************************************
+Q1.Write the HTML code which generates the following output.
+Company wise Profit
+=><h3>QUTION TABLE</h3>
+<table border=1 width=90% bordercolor=black align=center>
+<tr>
+<th>Company name</th>
+<th>Year</th>
+<th>Profit</th>
+</tr>
+<tr>
+<td rowspan=3 align=center width=20>Ifosys
+</td>
+<td align=center width=50> 2018</td>
+<td align=center width=17>4052</td>
+</tr>
+<tr>
+<td align=center>2019</td>
+<td align=center>6043</td>
+</tr>
+<tr>
+<td align=center>2020</td>
+<td align=center>7043</td>
+</tr>
+<tr>
+<td rowspan=3 align=center>Wipro</td>
+<td align=center>2018</td>
+<td align=center>432</td>
+</tr>
+<tr>
+<td align=center>2019</td>
+<td align=center>567</td>
+</tr>
+<tr>
+<td align=center>2020</td>
+<td align=center>872</td>
+</tr>
+</table>
+******************************************************************************************
+Q1.. Create a Web Site with following specifications
+a) Title should be about MY CITY
+b) Put image of your city map in the background
+c) Place popular college name of your city at the bottom in smaller size
+d) Add names of historical places in a different color, style and typeface
+e) Add scrolling text with a message of your choice
+f) Add photo of historical place at the top
+=><HTML>
+<HEAD><TITLE><CENTER>My CITY</CENTER></TITLE></HEAD>
+<BODY BGCOLOR="ORANGE">
+<BODY BGCOLOR="ORANGE">
+<FONT SIZE="7" FACE="ARIAL" COLOR="BLUE"><CENTER>PUNE,
+<SMALL>MAHARASHTRA</SMALL></FONT><BR>
+<BODY BGCOLOR="RED"><CENTER>
+<font size="4" face="arial" color="pink"<B>Landmarks</B></font><BR>
+<font size="4" face="arial" color="yellow"<B>SHANIVAR WADA</B></font><BR>
+<font size="4" face="arial" color="red"<B>Empharence Mall</B></font><BR>
+<font size="4" face="arial" color="blue"<B>Ganesh Tekadi</B></font><BR>
+<BODY BGCOLOR="PINK"<CENTER>
+<MARQUEE BEHAVIOUR="SLIDE"> Wonderful Place To Visit</MARQUEE>
+<MARQUEE BEHAVIOUR="SLIDE">Pune Is best City for Education</MARQUEE>
+<IMG SRC="b.jpg" WIDTH="400" HEIGHT="400" ALT="IMAGE CANNOT BE DISPLAYED">
+</BODY>
+
+</HTML>
+Q1.write html script with enternal css to display following screen:
+=><!DOCTYPE html>
+<html>
+<body>
+<div style="border:1px solid #cccccc;">
+ This is the first text</div>
+<div style=" border: 2px solid 
+red;">
+This is box 1
+</div>
+<div style="border: 2px solid green;">
+This is box 2
+</div>
+<div style="border:1px solid #cccccc;">
+This is the last text
+</div>
+</body>
+</html>
+**********************************************************************************************
+Q2.. Write a HTML script to display 
+following screen in figure 1.
+=>
+<HTML>
+<HEAD><TITLE><CENTER>My College</CENTER></TITLE></HEAD>
+<BODY >
+<FONT SIZE="3" FACE="ARIAL" ">
+<marquee>This is an alternate marquee text</marquee>
+<center>
+<br>
+This is <i>itallized</i>
+<br><br>This is <u>underline</u>
+<br><br>This is <b>Bold</b>
+<br><br>This is <e>emphasized</e>
+<br><br>This is <strong>Strong text</strong>
+<br><br>This is <strike>strike text</strike>
+<br><br>This is <code>computer code</code>
+<br><br>This is <sup>supesrcript</sup>code
+<br><br>This is <sub>subscript</sub>code
+<br><br>This is <big>Big</big>
+<br><br>This is <small>small</small>
+</center></font>
+</BODY>
+</HTML>
+**********************************************************************************************
+Q2.1. Write a HTML script to display following screen
+chpters
+=>
+<HTML>
+<HEAD><TITLE>My College</TITLE></HEAD>
+<BODY >
+<FONT SIZE="3" FACE="ARIAL" ">
+
+<CENTER ><p style="COLOR:ORANGE";>To illustrate link Tags</p></CENTER></font>
+<br><hr>
+<p>Text as link/hyperlink to another parge:<u><a href="">click here!!!</a></u></p>
+<hr>
+<p>Image as link/hyperlink: <img src="imag1.jpg" alt="My Image"></p>
+<hr>
+<br><br>
+<u><p style="color:blue";><a href="">see also chapter 8(link within page)
+</a></p></u>
+<br><br>
+<big><b ><a href="" style="color:black";>Chapter 1</a></b></big>
+<p>This chapter explains pointers.</p>
+<big><b><a href=""style="color:black";>Chapter 2</a></b></big>
+<p>This chapter explains variable.</p>
+<big><b><a href=""style="color:black";>Chapter 3</a></b></big>
+<p>This chapter explains operator.</p>
+<big><b><a href=""style="color:black";>Chapter 4</a></b></big>
+<p>This chapter explains structer.</p>
+
+
+</BODY>
+</HTML>
+**********************************************************************************************
+Q.2. Write the HTML code to display Product and 
+its subtypes in tabular format. Add more products of 
+your choice in following table.
+=><HTML>
+<HEAD><TITLE>My College</TITLE></HEAD>
+<BODY >
+<FONT SIZE="3" FACE="ARIAL" ">
+
+<CENTER >
+<br><hr>
+<table border=1 cellpadding=3 cellspacing=3 bordercolor=black width=800>
+<tr><cnter>
+<th><b>Sr.No</b></th>
+<th><b>Product name</b></th>
+<th><b>Products subtypes</b></th>
+</center>
+</tr>
+<tr>
+<td align=right>1</td>
+<td><center>pulses</center></td>
+<td><ul type="disk">
+<li>Toor dal</li>
+<li>Moong dal</li>
+<li>Udad dal</li>
+</ul></td>
+</tr>
+<tr>
+<td align=right>2</td>
+<td><center>Everest masala</center></td>
+<td><ul type="disk">
+<li>sambar masala</li>
+<li>Pavbhaji masala</li>
+<li>Kichen king masala</li>
+</ul></td>
+</tr>
+</table>
+</CENTER>
+</BODY>
+</HTML>
+**********************************************************************************************
+Q2.write html code for followin output
+(feedback form)
+=><!DOCTYPE html>
+<html>
+<body>
+
+
+<center><div style=" border: 2px solid black; width:60%  " >
+<font size=13><center><big><b>Feedback Form</b></big></font>
+<br><br>
+<form action="backend.php">
+<div>
+      <b>Student Name:</b><input type="text"></input>
+</div><br>
+<div>
+      <b>Student E-mail</b><input type="email" name="myemail"></input>
+</div><br><br>
+<div>
+<label for="institute">
+       <b>How do you know this institute</b>
+</label>
+    <select name="myinstitute" id="institute">
+        <option value="management">selected through management</option>
+        <option value="online">from online </option>
+    </select>
+</div>
+<br><br>
+<div>
+     <b>How do you rate the faculty:
+       <input type="radio" name="rating">poor
+       <input type="radio" name="rating">good
+       <input type="radio" name="rating">very good
+       <input type="radio" name="rating">Exellent
+     </b>
+</div>
+<br><br>
+<div>
+      <b>Suggestions for betterment of faculty and institute</b>
+<br>
+      <textarea name="suggest_text" cols="60" row="400">
+      </textarea>
+</div>
+<div>
+     <input type="submit"value="submit">
+     <input type="reset"value="clear">
+</div>
+</center>
+</form>
+</div> 
+</center>
+</body>
+</html>
+*********************************************************************************************
+Q2.form answer
+=><!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        .textalign{
+            text-align: left;
+            padding: 0px 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div style="border: 2px solid black; width: 30%" class="textalign">
+        <br /><br />
+        <form action="backend.php">
+          <div >
+            <b>Enter Your Name</b>
+            <input type="text" />
+          </div>
+          <br />
+          <div>
+            <b>Enter your Password</b>
+            <input type="password" />
+          </div>
+          <br /><br />
+          <div>
+            <b
+              >which of the following Operating System have you used?
+              <br/>
+              <input type="checkbox" name="os" />LINUX
+              <input type="checkbox" name="os" />Windox XP
+              <input type="checkbox" name="os" />Machintosh 8.0
+            </b>
+          </div>
+          <br />
+          <div>
+            <b>Which oprating System do you like the best
+              <br/>
+              <input type="radio" name="oschoice" />LINUX
+              <input type="radio" name="oschoice" />Windows XP
+              <input type="radio" name="oschoice" />Machintosh 8.0
+            </b>
+          </div>
+          <br />
+          <div>
+            <b>You have Completed the Form.</b>
+            <input type="submit" name="submit" />
+          </div>
+          <br /><br />
+        </form>
+      </div>
+    </center>
+  </body>
+</html>
+********************************************************
+Q2.max min sum
+=>
+<HTML>
+
+<HEAD>
+<TITLE> Max Min Sum Avg</TITLE>
+</HEAD>
+<BODY>
+
+<b>
+	Find the min/max element
+	of an Array using JavaScript
+</b>
+<p>
+	Click on the button below to
+	find out the minimum and
+	maximum of the array
+	[50, 60, 20, 10, 40]
+</p>
+
+<p>Minimum element is: <span class="min">
+	</span>
+	<br>Maximum Element is: <span class="max">
+	</span>
+  <br>sum is:<span class="sum">
+  </span>
+  <br>average is: <span class="avg">
+	</span>
+</p>
+<button onclick="findMinMax()">
+	Click to check
+</button>
+<script>
+	function findMinMax() {
+		array = [50, 60, 20, 10, 40];
+		minValue = Infinity;
+		maxValue = -Infinity;
+        sum=0;	 avg=0;
+       
+
+		for (item of array) {
+			// find minimum value
+			if (item < minValue)
+				minValue = item;
+	
+			// find maximum value
+			if (item > maxValue)
+				maxValue = item;
+          
+               sum=sum+item;
+             avg=sum/5;
+		}
+       
+    
+		document.querySelector(
+		'.min').textContent = minValue;
+		document.querySelector(
+		'.max').textContent = maxValue;
+        document.querySelector(
+        '.sum').textContent=sum;
+       document.querySelector(
+        '.avg').textContent=avg;
+	}
+</script>
+
+</BODY>
+<HTML>
+
+
